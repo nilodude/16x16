@@ -3,19 +3,30 @@ from neopixel import Neopixel
 
 led = Pin("LED", Pin.OUT)
 tim = Timer()
+gradient = Timer()
 
 pixels = Neopixel(16*16, 0, 2, "GRB") 
 
+val = 0
+
 def tick(timer):
     global led
-    global mcp1
     led.toggle()
 
+def grad(gradient):
+    global val
+    val = val + 50
+    
+    val = 0 if val > 4000 else val
+    val = 4000 if val < 0  else val
+    print(val)
+
 tim.init(freq=1, mode=Timer.PERIODIC, callback=tick)
+gradient.init(freq=10, mode=Timer.PERIODIC, callback=grad)
 
 while(True):
-    val = 1000
-    r=int(val/1500)
+    
+    r=int(val/100)
     color = (3, 4+r, 30-r)
     
     rgbw1 = color
