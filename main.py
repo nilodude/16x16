@@ -16,12 +16,15 @@ tim.init(freq=1, mode=Timer.PERIODIC, callback=tick)
 
 while(True):
     val = val + (40*(1 if dir else -1))
-    if val >= 3000:
+    if val >= 2000:
+#         print('val=',val)
         dir = False
-    elif val < 0:
+    elif val <= 0:
+#         print('val=',val)
         dir = True
     
-    r=int(val/100)
+    r=int(val/80)
+#     print('r=',r)
     color = (3, 4+r, 30-r)
     
     rgbw1 = color
