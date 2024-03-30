@@ -66,6 +66,7 @@ while(True):
     
 #     hay que investigar porqué el color (aprox) blanco se consigue con (r,g,b)=(94,60,255) en la matriz 16x16
 #     con el r=94, g=60, y bajando el azul de 255 se consigue blanco más cálido, pero al bajar el azul el verde hay que bajarlo un poco tambien
-    pixels.fill((94,50,100))
+#     pixels.fill((94,50,100))
 #     pixels.fill((94,60,255))
+    pixels.fill(rgbw1)
     pixels.show()    
