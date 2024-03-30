@@ -58,7 +58,7 @@ while(True):
 #     up and down
     r=int(val/80)
 
-    color = (3, 4+r, 30-r)
+    color = (3*4+r, 4+r, 30-r)
     rgbw1 = color
     rgbw2 = (56,20+0.1*r, 8-0.1*r)
     
