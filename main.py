@@ -46,25 +46,25 @@ while(True):
 #     if(br < 20):
 #     print(br)
    
-    if br > 600:
+    if br > 500:
         randomismo = random.randrange(-4, 2)
 #         print(randomismo)
     
-    pixels.brightnessvalue = 0 if br < 2 else br
+    pixels.brightnessvalue = 0 if br < 2 else (900 if br > 900 else br)
     
         
 #     color oscillates at steps of dVal  
     val = val + (dVal*(1 if dir else -1))
     
-    if val >= 1500:
+    if val >= 2000:
         dir = False
-    elif val <= 0:
+    elif val <= 1:
         dir = True
     
     r=int(val/90) + randomismo
 #     print(randomismo)
-    r = 29 if r > 29 else r
-    color = (3*4+r, 1+r, 30-r)
+    r = 15 if r > 15 else (-1 if r < -1 else r)
+    color = (3*3+r, 1+r, 30-r)
     rgbw1 = color
     rgbw2 = (56,20+0.3*r, 8-0.3*r)
     
