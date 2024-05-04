@@ -36,6 +36,7 @@ def measure(mean=500):
 randomismo = 0
 prev = 0
 decay = 60
+pixels.brightnessvalue=0
 pixels.fill((0,0,0))
 pixels.show()
 while(True):
@@ -62,6 +63,7 @@ while(True):
     
     r=int(val/90) + randomismo
 #     print(randomismo)
+    r = 29 if r > 29 else r
     color = (3*4+r, 1+r, 30-r)
     rgbw1 = color
     rgbw2 = (56,20+0.3*r, 8-0.3*r)
