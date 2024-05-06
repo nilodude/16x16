@@ -20,7 +20,7 @@ def tick(timer):
 
 tim.init(freq=1, mode=Timer.PERIODIC, callback=tick)
 
-def measure(mean=500):
+def measure(mean=400):
     dB=0
     raw = 0
     numsamples = mean
@@ -32,6 +32,9 @@ def measure(mean=500):
     rms = rms/numsamples
     dB = 20.0 * math.log10(math.sqrt(rms) / 32767);
     return -dB
+def norma(n=500):
+    return int(measure(n)*1000 -25)
+
 
 randomismo = 0
 prev = 0
@@ -41,8 +44,10 @@ pixels.fill((0,0,0))
 pixels.show()
 while(True):
 #     brightness follows ADC
-    br= int(measure(400)*1000 -25)
-    
+#     br= norma()
+    br = norma()
+#     brLP = norma(800)
+#     brHP = norma (50) 
 #     if(br < 20):
 #     print(br)
    
@@ -68,11 +73,11 @@ while(True):
     rgbw1 = color
     rgbw2 = (56,20+0.3*r, 8-0.3*r)
     
-    
+#     colorEQ = (brLP,0,brHP )
 
 #     pixels.set_pixel_line_gradient(0, 255, rgbw1, rgbw2) # display parpadea cuando hay que llegar a muchos pixeles, se nota latencia
     
-    pixels.fill(rgbw1)
+    pixels.fill(color)
 #     hay que investigar porqué el color (aprox) blanco se consigue con (r,g,b)=(94,60,255) en la matriz 16x16
 #     con el r=94, g=60, y bajando el azul de 255 se consigue blanco más cálido, pero al bajar el azul el verde hay que bajarlo un poco tambien
 #     pixels.fill((94,50,100))
